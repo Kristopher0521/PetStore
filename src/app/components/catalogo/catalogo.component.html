@@ -1,0 +1,15 @@
+<!-- <div class="header">
+    <app-header></app-header>
+</div> -->
+  
+<div class="cards-container">
+    <div *ngFor="let product of products; let i = index">
+      <!-- Outputs: -->
+      <!-- Lab - Práctica: -->
+      <!-- adicionar el evento que envia el objeto del producto elegido ((addToCart)="addToCart($event)") -->
+      <app-card-product
+      [product]="product"
+      (addToCart)="addToCart($event)"
+      ></app-card-product>
+    </div>
+</div>
