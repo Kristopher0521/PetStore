@@ -5,7 +5,7 @@ import { CartServicesService } from '../../services/cart-services.service';
 
 // Lab 14
 import { ApiService } from '../../services/api.service';
-import { Producto } from '../../../interfaces/producto.interface';
+// import { Producto } from '../../../interfaces/producto.interface';
 
 @Component({
   selector: 'app-root',
@@ -22,31 +22,40 @@ export class CatalogoComponent implements OnInit {
 
   // Lab 14
 
-  public productos: Producto[] = [];
+  public productos: any[] = [];
 
   constructor(
     private apiService: ApiService,
     private cartServicesService: CartServicesService
   ) { }
 
+  // Lab 14
 
-  // Cambié el código Lab 14:
   ngOnInit(): void {
     this.apiService.getProducts()
-      .subscribe(
-        (res: any) => {
-          // Verifica que res sea un arreglo antes de asignarlo
-          if (Array.isArray(res)) {
-            this.productos = res as Producto[];
-          } else {
-            // Manejar el caso en que res no sea un arreglo de productos
-          }
-        },
-        (error) => {
-          // Manejar errores
-        }
-      );
+      .subscribe(res => {
+        this.productos = res;
+      });
   }
+
+
+  // Cambié el código Lab 14:
+  // ngOnInit(): void {
+  //   this.apiService.getProducts()
+  //     .subscribe(
+  //       (res: any) => {
+  //         // Verifica que res sea un arreglo antes de asignarlo
+  //         if (Array.isArray(res)) {
+  //           this.productos = res as Producto[];
+  //         } else {
+  //           // Manejar el caso en que res no sea un arreglo de productos
+  //         }
+  //       },
+  //       (error) => {
+  //         // Manejar errores
+  //       }
+  //     );
+  // }
   
   // Outputs:
   // Lab - Práctica:

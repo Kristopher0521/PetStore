@@ -13,6 +13,6 @@ export class ApiService {
   ) { }
 
   getProducts() {
-    return this.http.get(`https://example.com/api/productos`);
+    return this.http.get<any[]>(`http://localhost:8000/products`);
   }
 }

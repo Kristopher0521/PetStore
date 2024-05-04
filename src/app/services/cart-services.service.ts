@@ -43,4 +43,8 @@ export class CartServicesService {
   clearCart() {
     this.cart = [];
   }
+
+  cartToLenght() {
+    
+  }
 }
